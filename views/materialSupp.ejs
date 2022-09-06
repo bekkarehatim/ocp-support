@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('layouts/header'); -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar'); -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('/assets/img/pexels-pixabay-260689.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Search for a material here</h1>
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <!--search bar-->
+        <div class="container mb-4">
+            <form class="d-flex" action="/material/search" method="POST">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="serialNumber" id="serialNumber">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <!--the searched post-->
+        
+        <!-- Divider-->
+        <% if(mat[0]._id!=null){ %>
+            <div class="container">
+                <hr class="my-4" />
+                <div class="post-preview">
+                    <a href="/post/<%= mat[0]._id %>">
+                        <% const date = new Date()%>
+                        <% const lifeTime = (date.getFullYear()-mat[0].datePosted.getFullYear())*12+(date.getMonth()-mat[0].datePosted.getMonth()) %>
+                        <h2 class="post-title"><%= mat[0].serialNumber %></h2>
+                        <div class="out">
+                            <% if(mat[0].warranty>=lifeTime){ %>
+                                <div class="in1"></div>
+                            <% }else{ %>
+                                <div class="in2"></div>
+                            <% } %>
+                        </div>
+                    </a>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            </div>
+        <% } %>
+        <!-- Footer-->
+        <%- include('layouts/footer'); -%>
+
+        <%- include('layouts/script'); -%>
+    </body>
+</html>
