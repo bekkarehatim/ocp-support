@@ -1,0 +1,62 @@
+.out{
+    height: 15px;
+    background-color:rgba(218, 218, 218, 0.929);
+    position: relative;
+    border-radius: 7px;
+}
+
+.in1{
+    position: absolute; 
+    height: 100%;
+    border-radius: 7px;
+    animation: semiProg 5s forwards;
+}
+.in2{
+    position: absolute;
+    height: 100%;
+    border-radius: 7px;
+    animation: fullProg 7s forwards;
+}
+
+@keyframes semiProg{
+    0% {
+        width: 0%;
+        background-color: rgb(251, 249, 128);
+    }
+    25% {
+        width: 25%;
+        background-color: rgba(200, 245, 65, 0.73);
+    }
+    50% {
+        width: 50%;
+        background-color: rgba(148, 238, 64, 0.73);
+    }
+    100% {
+        width: 75%;
+        background-color: rgba(80, 222, 51, 0.73);
+    }
+}
+
+@keyframes fullProg{
+    0% {
+        width: 0%;
+        background-color: rgb(251, 249, 128);
+    }
+    25% {
+        width: 25%;
+        background-color: rgba(230, 210, 58, 0.73);
+    }
+    50% {
+        width: 50%;
+        background-color: rgba(216, 159, 53, 0.73);
+    }
+    75% {
+        width: 75%;
+        background-color: rgba(236, 118, 49, 0.73);
+    }
+    100% {
+        width: 100%;
+        background-color: rgba(240, 50, 50, 0.73);
+    }
+}
+
